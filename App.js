@@ -6,12 +6,12 @@
 
 import React, { Component } from 'react';
 import {
+  AppRegistry,
   Platform,
   StyleSheet,
   Text,
   View,
-  Button,
-  Alert
+  Image
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -22,38 +22,32 @@ const instructions = Platform.select({
 });
 
 type Props = {};
+import Icon from 'react-native-vector-icons/Ionicons';
 export default class App extends Component<Props> {
 
-  onPress() {
-    Alert.alert(
-      'Alert Title',
-      'My Alert Msg',
-      [
-        {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
-      ]
-    )
-  }
-
   render() {
+    const image = 'https://cdn.elgrupoinformatico.com/Noticias/2017/12/jaja-inocentes-550x312.jpg'
+    const name = 'Test'
+    const likes = 200
+    const comments = 140
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Test!esooo
-        </Text>
-        <Button
-          onPress={this.onPress}
-          title="Learn more"
-          color="#841584"
-          accesibilityLabel="Learn more about this purple button"
-        />
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <View style={styles.travelBox}>
+          <Image style={styles.image} source={{ uri: image }} />
+          <View style={styles.info}>
+            <Text style={styles.name}>{name}</Text>
+            <View style={styles.row}>
+              <View style={styles.iconContainer}>
+                <Icon name="ios-heart-outline" size={30} color="gray" />
+                <Text style={styles.count}>{likes}</Text>
+              </View>
+              <View style={styles.iconContainer}>
+                <Icon name="ios-chatboxes-outline" size={30} color="gray" />
+                <Text style={styles.count}>{comments}</Text>
+              </View>
+            </View>
+          </View>
+        </View>
       </View>
     );
   }
@@ -62,18 +56,40 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: 'lightgray',
+    paddingTop: 50,
+  },
+  travelBox: {
+    backgroundColor: 'white',
+    flexDirection: 'row'
+  },
+  image: {
+    width: 150,
+    height: 150,
+  },
+  info: {
+    flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'center'
   },
-  welcome: {
+  name: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    marginTop: 10,
+    color: '#333'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  row: {
+    flexDirection: 'row',
+    marginHorizontal: 30,
+    marginTop: 15
   },
+  iconContainer: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  count: {
+    color: 'gray'
+  }
 });
+
+AppRegistry.registerComponent('PlatziMusic', () => PlatziMusic);
