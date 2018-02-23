@@ -11,7 +11,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  FlatList
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -23,31 +24,36 @@ const instructions = Platform.select({
 
 type Props = {};
 import Icon from 'react-native-vector-icons/Ionicons';
+import Artistbox from './components/ArtistBox';
+import ArtistList from './components/ArtistList'
+import { getArtists } from './components/api-client';
+
+
+
 export default class App extends Component<Props> {
+  state = {
+    artists: []
+  }
+
+  componentDidMount() {
+    getArtists()
+      .then(data => this.setState({ artists: data }))
+  }
 
   render() {
-    const image = 'https://cdn.elgrupoinformatico.com/Noticias/2017/12/jaja-inocentes-550x312.jpg'
-    const name = 'Test'
-    const likes = 200
-    const comments = 140
+    // const artist = {
+    //   image: 'https://lastfm-img2.akamaized.net/i/u/300x300/31a51f6e3ec647c8997150ec837891c7.png',
+    //   name: 'David Bowie',
+    //   likes: 200,
+    //   comments: 140
+    // }
+    // const artists = Array(50).fill(artist)
+
+    const artists = this.state.artists;
+
     return (
       <View style={styles.container}>
-        <View style={styles.travelBox}>
-          <Image style={styles.image} source={{ uri: image }} />
-          <View style={styles.info}>
-            <Text style={styles.name}>{name}</Text>
-            <View style={styles.row}>
-              <View style={styles.iconContainer}>
-                <Icon name="ios-heart-outline" size={30} color="gray" />
-                <Text style={styles.count}>{likes}</Text>
-              </View>
-              <View style={styles.iconContainer}>
-                <Icon name="ios-chatboxes-outline" size={30} color="gray" />
-                <Text style={styles.count}>{comments}</Text>
-              </View>
-            </View>
-          </View>
-        </View>
+        <ArtistList artists={artists} />
       </View>
     );
   }
@@ -58,38 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'lightgray',
     paddingTop: 50,
-  },
-  travelBox: {
-    backgroundColor: 'white',
-    flexDirection: 'row'
-  },
-  image: {
-    width: 150,
-    height: 150,
-  },
-  info: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  name: {
-    fontSize: 20,
-    marginTop: 10,
-    color: '#333'
-  },
-  row: {
-    flexDirection: 'row',
-    marginHorizontal: 30,
-    marginTop: 15
-  },
-  iconContainer: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  count: {
-    color: 'gray'
   }
 });
 
-AppRegistry.registerComponent('PlatziMusic', () => PlatziMusic);
+AppRegistry.registerComponent('almundoApp', () => almundoApp);
