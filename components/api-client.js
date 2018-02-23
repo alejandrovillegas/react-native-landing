@@ -12,8 +12,10 @@ function getExperts() {
   .then(experts => experts.map(expert => ({
     name: expert.name + ' ' + expert.last_name,
     image: IMG[Math.floor((Math.random() * 4))],
-    likes: returnSkills(expert, "LANGUAGE"),
-    comments: returnSkills(expert, "SOFT_SKILL")
+    language: returnSkills(expert, "LANGUAGE"),
+    skill: returnSkills(expert, "SOFT_SKILL"),
+    mail: expert.email,
+    residence: expert.residence.description,
   })))
 }
 

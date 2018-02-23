@@ -8,6 +8,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import ExpertBox from './ExpertBox'
+import ExpertLanding from './ExpertLanding'
 
 export default class ExpertDetailView extends Component {
   render() {
@@ -15,7 +16,7 @@ export default class ExpertDetailView extends Component {
 
     return (
       <View style={styles.container}>
-        <ExpertBox expert={expert} />
+        <ExpertLanding expert={expert} />
       </View>
     );
   }
