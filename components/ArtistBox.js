@@ -20,11 +20,11 @@ export default class ArtistBox extends Component {
           <Text style={styles.name}>{name}</Text>
           <View style={styles.row}>
             <View style={styles.iconContainer}>
-              <Icon name="ios-heart-outline" size={30} color="gray" />
+              <Icon name="ios-school-outline" size={30} color="gray" />
               <Text style={styles.count}>{likes}</Text>
             </View>
             <View style={styles.iconContainer}>
-              <Icon name="ios-chatboxes-outline" size={30} color="gray" />
+              <Icon name="ios-happy-outline" size={30} color="gray" />
               <Text style={styles.count}>{comments}</Text>
             </View>
           </View>

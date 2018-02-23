@@ -1,15 +1,20 @@
-const URL = `https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=spain&api_key=e5f95ee46580f32ab850e3cbfddec906&format=json`
+const URL = `https://almundo.com.co/experts/api/experts/highlights`
 
 function getArtists() {
   return fetch(URL)
     .then(response => response.json())
-    .then(data => data.topartists.artist)
-    .then(artists => artists.map(artist => ({
-      name: artist.name,
-      image: artist.image[3]['#text'],
-      likes: 200,
-      comments: 140
-    })))
+  .then(artists => artists.map(artist => ({
+    name: artist.name + ' ' + artist.last_name,
+    image: 'https://www.enjoycompare.com/wp-content/uploads/2014/11/Travel-Logo_v2.png',
+    likes: returnSkills(artist, "LANGUAGE"),
+    comments: returnSkills(artist, "SOFT_SKILL")
+  })))
+}
+
+function returnSkills(array, parameter) {
+  let count = 0;
+  array.skills.map((skill) => { if (skill.type === parameter) {count+=1}})
+  return count
 }
 
 export { getArtists }
