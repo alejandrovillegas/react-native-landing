@@ -6,14 +6,14 @@ const IMG = ['https://www.enjoycompare.com/wp-content/uploads/2014/11/Travel-Log
   'https://i1.wp.com/www.globaladventuress.com/wp-content/uploads/2016/06/patagonia-1.jpg?resize=300%2C300'
 ];
 
-function getArtists() {
+function getExperts() {
   return fetch(URL)
     .then(response => response.json())
-  .then(artists => artists.map(artist => ({
-    name: artist.name + ' ' + artist.last_name,
+  .then(experts => experts.map(expert => ({
+    name: expert.name + ' ' + expert.last_name,
     image: IMG[Math.floor((Math.random() * 4))],
-    likes: returnSkills(artist, "LANGUAGE"),
-    comments: returnSkills(artist, "SOFT_SKILL")
+    likes: returnSkills(expert, "LANGUAGE"),
+    comments: returnSkills(expert, "SOFT_SKILL")
   })))
 }
 
@@ -23,4 +23,4 @@ function returnSkills(array, parameter) {
   return count
 }
 
-export { getArtists }
+export { getExperts }

@@ -21,12 +21,12 @@ export default class ExpertList extends Component {
   }
 
   componentDidMount() {
-    this.updateDataSource(this.props.artists)
+    this.updateDataSource(this.props.experts)
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.artists !== this.props.artists) {
-      this.updateDataSource(newProps.artists)
+    if (newProps.experts !== this.props.experts) {
+      this.updateDataSource(newProps.experts)
     }
   }
 
@@ -36,8 +36,8 @@ export default class ExpertList extends Component {
     })
   }
 
-  handlePress(artist) {
-    Actions.expertDetail({ artist })
+  handlePress(expert) {
+    Actions.expertDetail({ expert })
   }
 
   render() {
@@ -45,9 +45,9 @@ export default class ExpertList extends Component {
       <ListView
         enableEmptySections={true}
         dataSource={this.state.dataSource}
-        renderRow={(artist) => {
-          return <TouchableOpacity onPress={() => this.handlePress(artist)}>
-            <ExpertBox artist={artist} />
+        renderRow={(expert) => {
+          return <TouchableOpacity onPress={() => this.handlePress(expert)}>
+            <ExpertBox expert={expert} />
           </TouchableOpacity>
         }}
       />

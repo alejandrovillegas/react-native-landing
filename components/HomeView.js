@@ -8,24 +8,24 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import ExpertList from './ExpertList'
-import { getArtists } from './api-client'
+import { getExperts } from './api-client'
 
 export default class HomeView extends Component {
   state = {
-    artists: []
+    experts: []
   }
 
   componentDidMount() {
-    getArtists()
-      .then(data => this.setState({ artists: data }))
+    getExperts()
+      .then(data => this.setState({ experts: data }))
   }
 
   render() {
-    const artists = this.state.artists
+    const experts = this.state.experts
 
     return (
       <View style={styles.container}>
-        <ExpertList artists={artists} />
+        <ExpertList experts={experts} />
       </View>
     );
   }

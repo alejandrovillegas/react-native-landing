@@ -11,11 +11,11 @@ import ExpertBox from './ExpertBox'
 
 export default class ExpertDetailView extends Component {
   render() {
-    const artist = this.props.artist
+    const expert = this.props.expert
 
     return (
       <View style={styles.container}>
-        <ExpertBox artist={artist} />
+        <ExpertBox expert={expert} />
       </View>
     );
   }

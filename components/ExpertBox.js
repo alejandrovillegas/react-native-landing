@@ -11,10 +11,10 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class ExpertBox extends Component {
   render() {
-    const { image, name, likes, comments } = this.props.artist;
+    const { image, name, likes, comments } = this.props.expert;
 
     return (
-      <View style={styles.artistBox}>
+      <View style={styles.expertBox}>
         <Image style={styles.image} source={{ uri: image }} />
         <View style={styles.info}>
           <Text style={styles.name}>{name}</Text>
@@ -35,7 +35,7 @@ export default class ExpertBox extends Component {
 }
 
 const styles = StyleSheet.create({
-  artistBox: {
+  expertBox: {
     margin: 5,
     backgroundColor: 'white',
     flexDirection: 'row',
