@@ -1,11 +1,17 @@
 const URL = `https://almundo.com.co/experts/api/experts/highlights`
+const IMG = ['https://www.enjoycompare.com/wp-content/uploads/2014/11/Travel-Logo_v2.png',
+  'https://i.pinimg.com/originals/51/f2/18/51f218b857cc754dcf87df41acea01ad.jpg',
+  'https://ewtcdn-dt7ryijmgirh.netdna-ssl.com/wp-content/uploads/2017/05/polar-pro-dronetrekker.jpg',
+  'https://img2.10bestmedia.com/Images/Photos/333069/10_57_300x300.jpg',
+  'https://i1.wp.com/www.globaladventuress.com/wp-content/uploads/2016/06/patagonia-1.jpg?resize=300%2C300'
+];
 
 function getArtists() {
   return fetch(URL)
     .then(response => response.json())
   .then(artists => artists.map(artist => ({
     name: artist.name + ' ' + artist.last_name,
-    image: 'https://www.enjoycompare.com/wp-content/uploads/2014/11/Travel-Logo_v2.png',
+    image: IMG[Math.floor((Math.random() * 4))],
     likes: returnSkills(artist, "LANGUAGE"),
     comments: returnSkills(artist, "SOFT_SKILL")
   })))

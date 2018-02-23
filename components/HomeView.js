@@ -34,7 +34,7 @@ export default class HomeView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#ec5d41',
     paddingTop: 50,
   },
 });
