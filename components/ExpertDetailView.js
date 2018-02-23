@@ -7,15 +7,15 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import ArtistBox from './ArtistBox'
+import ExpertBox from './ExpertBox'
 
-export default class ArtistDetailView extends Component {
+export default class ExpertDetailView extends Component {
   render() {
     const artist = this.props.artist
 
     return (
       <View style={styles.container}>
-        <ArtistBox artist={artist} />
+        <ExpertBox artist={artist} />
       </View>
     );
   }

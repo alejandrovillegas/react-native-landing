@@ -7,7 +7,7 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import ArtistList from './ArtistList'
+import ExpertList from './ExpertList'
 import { getArtists } from './api-client'
 
 export default class HomeView extends Component {
@@ -25,7 +25,7 @@ export default class HomeView extends Component {
 
     return (
       <View style={styles.container}>
-        <ArtistList artists={artists} />
+        <ExpertList artists={artists} />
       </View>
     );
   }

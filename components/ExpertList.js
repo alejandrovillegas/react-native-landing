@@ -5,10 +5,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import ArtistBox from './ArtistBox'
+import ExpertBox from './ExpertBox'
 import { Actions } from 'react-native-router-flux'
 
-export default class ArtistList extends Component {
+export default class ExpertList extends Component {
 
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ export default class ArtistList extends Component {
   }
 
   handlePress(artist) {
-    Actions.artistDetail({ artist })
+    Actions.expertDetail({ artist })
   }
 
   render() {
@@ -47,7 +47,7 @@ export default class ArtistList extends Component {
         dataSource={this.state.dataSource}
         renderRow={(artist) => {
           return <TouchableOpacity onPress={() => this.handlePress(artist)}>
-            <ArtistBox artist={artist} />
+            <ExpertBox artist={artist} />
           </TouchableOpacity>
         }}
       />

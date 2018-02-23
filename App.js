@@ -15,7 +15,7 @@ import {Scene, Router} from 'react-native-router-flux'
 
 type Props = {};
 import HomeView from './components/HomeView'
-import ArtistDetail from './components/ArtistDetailView'
+import ExpertDetail from './components/ExpertDetailView'
 
 
 export default class App extends Component<Props> {
@@ -25,7 +25,7 @@ export default class App extends Component<Props> {
     return <Router>
       <Scene key="root">
         <Scene key="home" component={HomeView} hideNavBar />
-        <Scene key="artistDetail" component={ArtistDetail} hideNavBar={isAndroid} />
+        <Scene key="expertDetail" component={ExpertDetail} hideNavBar={isAndroid} />
       </Scene>
     </Router>
   }
