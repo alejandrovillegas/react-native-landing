@@ -5,9 +5,6 @@ import {
   View,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Ionicons'
-
-import ExpertBox from './ExpertBox'
 import ExpertLanding from './ExpertLanding'
 
 export default class ExpertDetailView extends Component {
